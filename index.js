@@ -7,7 +7,11 @@ loadProductsButtom.addEventListener('click', () => {
     const productList = document.getElementById('products');
     productListController(productList);
 
+    productList.addEventListener('productsLoaded', () => {
+        console.log('productos cargados satisfactoriamente');
+    })
 })
+
 
 
 

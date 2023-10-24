@@ -7,7 +7,7 @@ export const productListController = async (productList) => {
     const products = await getProducts()
 
     if (products.length === 0) {
-       //window.alert('no hay productos diponibles');
+       
        productList.innerHTML = emptyProducts();
     } else{
         products.forEach(product => {
@@ -17,6 +17,9 @@ export const productListController = async (productList) => {
             
             productList.appendChild(productContainer);
         })
+
+        const event = new CustomEvent('productsLoaded');
+        productList.dispatchEvent(event);
 
     }
 
