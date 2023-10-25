@@ -19,7 +19,7 @@ export const getProducts = async() => {
         parsedProducts = transformProducts(products);
         
     } catch (error) {
-        console.log('error fatal');
+        throw error;
     }
     
     return parsedProducts;

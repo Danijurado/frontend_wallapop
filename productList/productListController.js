@@ -4,24 +4,42 @@ import { emptyProducts } from './productListView.js';
 
 export const productListController = async (productList) => {
     productList.innerHTML = '';
-    const products = await getProducts()
+    let products = [];
+    
+    try {
+        products = await getProducts()
+    } catch (error) {
+        const event = createEvent('error', 'Error al cargar productos');
+        productList.dispatchEvent(event);
+    }
 
     if (products.length === 0) {
        
        productList.innerHTML = emptyProducts();
     } else{
-        products.forEach(product => {
-            
-            const productContainer = document.createElement('div');
-            productContainer.innerHTML = buildProduct(product);
-            
-            productList.appendChild(productContainer);
-        })
-
-        const event = new CustomEvent('productsLoaded');
+        drawProducts(products, productList);
+        const event = createEvent('succes', 'Productos cargados satisfactoriamente' )
         productList.dispatchEvent(event);
 
     }
 
 }
 
+const drawProducts = (products, productList) => {
+    products.forEach(product => {
+        const productContainer = document.createElement('div');
+        productContainer.innerHTML = buildProduct(product);
+        
+        productList.appendChild(productContainer);
+    })
+}
+
+const createEvent = (type, message) => {
+    const event = new CustomEvent('productsLoaded', {
+        detail: {
+            type: type,
+            message: message
+        }
+    });
+    return event;
+}

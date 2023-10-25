@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        
+        .notification {
+            font-weight: bold;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        
+        .notification.succes {
+            background-color: rgb(109, 211, 7);
+            
+        }
+
+        .notification.error {
+            background-color: rgb(208, 49, 49);
+            
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +28,7 @@
 <body>
     <h1>Wallapop</h1>
     <section id="notifications"></section>
-    <button id="loadProducts">Productos</button>
+    
     <section id="products"></section>
 
     <script type="module" src="./index.js"></script>
