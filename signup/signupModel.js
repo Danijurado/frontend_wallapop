@@ -21,7 +21,11 @@ export const createUser = async (username, password) => {
         }
         
     } catch (error) {
-        throw error;
+        if (error.message) {
+            throw error.message
+        } else {
+            throw error;
+        }
         
     }
 };

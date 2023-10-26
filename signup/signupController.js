@@ -12,10 +12,16 @@ export const signupController =  (signupForm) => {
         if (isValidForm(username, password, passwordComfirm)) {
             try {
                 await createUser(username.value, password.value)
-                alert('Usuario creado correctamente');
+                signupEvent('userCreated', {
+                    type: 'succes',
+                    message: 'Usuario creado correctamente'
+                }, signupForm)
             } catch (error) {
-                alert (error);
-                
+
+                signupEvent('userCreated', {
+                    type: 'error',
+                    message: error
+                }, signupForm)
             }
         }
     });
@@ -43,4 +49,11 @@ const isValidatePassword = (password, passwordComfirm) => {
         result = false;
     }
     return result;
+}
+
+const signupEvent = (eventName, data, signupForm) => {
+    const event = new CustomEvent(eventName, {
+        detail: data
+    });
+    signupForm.dispatchEvent(event);
 }
