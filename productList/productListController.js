@@ -7,10 +7,13 @@ export const productListController = async (productList) => {
     let products = [];
     
     try {
+        spinnerEvent('loadingProducts', null, productList);
         products = await getProducts()
     } catch (error) {
         const event = createEvent('error', 'Error al cargar productos');
         productList.dispatchEvent(event);
+    }finally {
+        spinnerEvent('finishLoadingProducts', null, productList);
     }
 
     if (products.length === 0) {
@@ -42,4 +45,11 @@ const createEvent = (type, message) => {
         }
     });
     return event;
+}
+
+const spinnerEvent = (eventName, data, element) => {
+    const event = new CustomEvent(eventName, {
+        detail: data
+    });
+    element.dispatchEvent(event);
 }
