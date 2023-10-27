@@ -16,6 +16,7 @@ export const signupController =  (signupForm) => {
                     type: 'succes',
                     message: 'Usuario creado correctamente'
                 }, signupForm)
+                window.location = './login.html';
             } catch (error) {
 
                 signupEvent('userCreated', {

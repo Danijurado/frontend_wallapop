@@ -11,8 +11,10 @@ export const loginController = (loginForm) => {
 const submitLogin = async (loginForm) => {
     const {username, password} = loginData(loginForm);
     try {
-        await loginUser(username, password);
+        const jwt =  await loginUser(username, password);
         alert('login ok');
+        localStorage.setItem('token', jwt);
+        window.location = './index.html';
     } catch (error) {
         alert(error);
     }
