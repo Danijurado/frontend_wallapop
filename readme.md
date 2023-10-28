@@ -17,10 +17,11 @@ Antes de ejecutar la aplicación, asegúrate de seguir estos pasos:
    git clone https://github.com/kasappeal/sparrest.js
 
 3. Inicia la api sparrest:
-
+    
+    ```bash
     npm start
 
-##Características
+## Características
 Visualización de productos: La aplicación muestra una lista de productos obtenidos de la API sparrest.js, con detalles como nombre, precio y descripción.
 
 Detalles del producto: Al hacer clic en un producto, los usuarios pueden ver los detalles completos del producto.
