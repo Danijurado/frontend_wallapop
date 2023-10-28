@@ -3,10 +3,13 @@
     position: absolute;
     top: 20px;
     right: 20px;
+    border-radius: 8px;
+    padding: 16px;
+    border: solid 1px gray;
 }
 
 .notification.succes {
-    background-color: rgb(109, 211, 7);
+    background-color: rgb(153, 202, 104);
     
 }
 
