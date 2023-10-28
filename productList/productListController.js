@@ -1,6 +1,7 @@
 import {getProducts} from './productListModel.js';
 import {buildProduct} from './productListView.js';
 import { emptyProducts } from './productListView.js';
+import { spinnerEvent } from '../utils/spinnerEvent.js';
 
 export const productListController = async (productList) => {
     productList.innerHTML = '';
@@ -45,11 +46,4 @@ const createEvent = (type, message) => {
         }
     });
     return event;
-}
-
-const spinnerEvent = (eventName, data, element) => {
-    const event = new CustomEvent(eventName, {
-        detail: data
-    });
-    element.dispatchEvent(event);
 }

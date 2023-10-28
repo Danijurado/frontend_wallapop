@@ -6,7 +6,8 @@ const transformProducts = (products) => {
         description: product.description,
         price: product.price,
         status: product.status,
-        photo: product.image
+        photo: product.image,
+        id: product.id
     }))
 }
 

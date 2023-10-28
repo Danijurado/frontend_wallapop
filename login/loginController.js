@@ -1,3 +1,4 @@
+import { spinnerEvent } from "../utils/spinnerEvent.js";
 import { loginUser } from "./loginModel.js";
 
 export const loginController = (loginForm) => {
@@ -11,12 +12,15 @@ export const loginController = (loginForm) => {
 const submitLogin = async (loginForm) => {
     const {username, password} = loginData(loginForm);
     try {
+        spinnerEvent('loadingLogin', null, loginForm);
         const jwt =  await loginUser(username, password);
         alert('login ok');
         localStorage.setItem('token', jwt);
         window.location = './index.html';
     } catch (error) {
         alert(error);
+    } finally {
+        spinnerEvent('finishLoadingLogin', null, loginForm);
     }
 }
 
