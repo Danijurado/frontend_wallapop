@@ -6,16 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="loader/style.css">
+    <style>
+        h1 {
+            background-color: #009688;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+          }
+          #login {
+            text-align: center; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+        }
+    </style>
 </head>
 <body>
+    <h1>Login</h1>
     <section id="loader"></section>
     <form id="login">
         <label for="username">Usuario</label>
         <input type="text" id="username" name="username" required>
-
+        <br>
         <label for="password">Contraseña</label>
         <input type="password" id="password" name="password" required >
-
+        <br>
         <button type="submit">Login</button>
     </form>
     <script type="module" src="login/index.js"></script>
