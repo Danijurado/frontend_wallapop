@@ -10,6 +10,8 @@ export const buildUserSession = () => {
 }
 
 export const buildSessionOff = () => {
-    return `<button>Cerrar sesion</button>`;
+    return `
+    <a href="create.html">Añadir producto</a>
+    <button>Cerrar sesion</button>`;
         
 }

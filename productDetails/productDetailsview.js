@@ -3,7 +3,7 @@ export const buildProduct = (product, user) => {
     <h3>${product.name}</h3>
     <img src="${product.photo}" alt="product image">
     <p>${product.description}</p>
-    <p>${product.price}</p>
+    <p>${product.price}€</p>
     <p>${product.status}</p>`;
 
    
